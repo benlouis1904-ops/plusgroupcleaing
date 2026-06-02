@@ -5,17 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PlusGroup Cleaning — Book a Deep Clean</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Inter', sans-serif; background: #f5f5f0; color: #1a1a1a; min-height: 100vh; padding: 2rem 1rem; }
   .page-wrap { max-width: 680px; margin: 0 auto; }
-  .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 2rem; }
-  .brand-icon { width: 36px; height: 36px; background: #1D9E75; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
-  .brand-icon i { color: #fff; font-size: 18px; }
-  .brand-name { font-size: 18px; font-weight: 500; color: #1a1a1a; }
-  .brand-name span { color: #1D9E75; }
+  .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 2rem; }
+  .brand-mark { width: 38px; height: 38px; flex-shrink: 0; }
+  .brand-wordmark { display: flex; flex-direction: column; line-height: 1; gap: 1px; }
+  .brand-main { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.03em; line-height: 1; color: #0c1d2b; }
+  .brand-main .accent { color: #17a47a; }
+  .brand-sub { font-size: 9.5px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; margin-top: 4px; color: #6a8278; }
+  .brand-sub .accent { color: #17a47a; }
   .steps { display: flex; gap: 0; margin-bottom: 2rem; }
   .step { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
   .step-num { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; border: 1px solid #ddd; color: #888; background: #fff; transition: all 0.2s; }
@@ -113,10 +115,18 @@
 </head>
 <body>
 <div class="page-wrap">
-  <div class="brand">
-    <div class="brand-icon"><i class="ti ti-sparkles"></i></div>
-    <div class="brand-name">PlusGroup <span>Cleaning</span></div>
-  </div>
+  <a class="brand" href="/" style="text-decoration:none;color:inherit;">
+    <svg class="brand-mark" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="17" y="5" width="4" height="28" rx="2" fill="#17a47a"/>
+      <rect x="5" y="17" width="28" height="4" rx="2" fill="#17a47a"/>
+      <circle cx="19" cy="19" r="17" stroke="#17a47a" stroke-width="1" opacity="0.2" fill="none"/>
+      <circle cx="19" cy="19" r="12" stroke="#17a47a" stroke-width="0.5" opacity="0.12" fill="none"/>
+    </svg>
+    <div class="brand-wordmark">
+      <div class="brand-main"><span class="accent">+65</span>Cleaning</div>
+      <div class="brand-sub">By <span class="accent">Plus</span>Group</div>
+    </div>
+  </a>
 
   <div class="steps">
     <div class="step active" id="step-1"><div class="step-num">1</div><div class="step-label">Service</div></div>

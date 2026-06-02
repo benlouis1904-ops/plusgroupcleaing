@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services &amp; Pricing — +65Cleaning by PlusGroup</title>
+<meta name="description" content="Essential, Deep, Move In/Out and Post-Renovation cleaning for Singapore homes, plus weekly and fortnightly subscriptions. Transparent pricing, free re-clean guarantee.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="stylesheet" href="/styles.css">
+<style>
+  .page-hero { background: var(--navy); color: #fff; padding: 72px 0 80px; position: relative; overflow: hidden; }
+  .page-hero::before { content:""; position:absolute; inset:0; background: radial-gradient(50% 90% at 78% 0%, rgba(23,164,122,.22), transparent 60%); }
+  .page-hero .wrap { position: relative; z-index: 1; }
+  .page-hero .eyebrow { color: var(--teal); }
+  .page-hero .eyebrow::before { background: var(--teal); }
+  .page-hero h1 { color: #fff; font-size: clamp(36px, 5.4vw, 60px); margin: 18px 0 16px; max-width: 720px; }
+  .page-hero p { font-size: 18px; color: rgba(255,255,255,.68); max-width: 560px; }
+
+  /* service detail rows */
+  .svc-detail { display: flex; flex-direction: column; gap: 22px; }
+  .sd-row { display: grid; grid-template-columns: 300px 1fr; gap: 34px; padding: 34px; align-items: start; }
+  .sd-left .sd-ico { width: 56px; height: 56px; border-radius: 14px; background: var(--teal-wash); color: var(--teal-deep); display: flex; align-items: center; justify-content: center; font-size: 27px; margin-bottom: 18px; }
+  .sd-left h3 { font-size: 24px; margin-bottom: 8px; }
+  .sd-left .sd-desc { font-size: 14.5px; color: var(--muted); margin-bottom: 18px; }
+  .sd-price { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 30px; color: var(--teal-deep); }
+  .sd-price span { font-size: 13px; color: var(--faint); font-weight: 500; display: block; margin-top: 2px; }
+  .sd-incl { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 11px 22px; }
+  .sd-incl li { display: flex; gap: 10px; font-size: 14.5px; color: var(--ink); align-items: flex-start; }
+  .sd-incl li i { color: var(--teal); font-size: 17px; flex-shrink: 0; margin-top: 1px; }
+  .sd-tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); background: #fbeee2; padding: 4px 10px; border-radius: 6px; margin-bottom: 14px; }
+  @media (max-width: 760px) {
+    .sd-row { grid-template-columns: 1fr; gap: 22px; padding: 26px; }
+    .sd-incl { grid-template-columns: 1fr; }
+  }
+
+  /* add-ons */
+  .addon-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .addon { padding: 22px; display: flex; align-items: center; gap: 15px; }
+  .addon .a-ic { width: 44px; height: 44px; border-radius: 11px; background: var(--cream); color: var(--teal-deep); display: flex; align-items: center; justify-content: center; font-size: 21px; flex-shrink: 0; }
+  .addon .a-name { font-weight: 600; font-size: 15px; color: var(--navy); }
+  .addon .a-price { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--teal-deep); font-size: 15px; margin-left: auto; }
+  @media (max-width: 760px) { .addon-grid { grid-template-columns: 1fr; } }
+
+  /* plans */
+  .plans-band { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+  .plan { padding: 32px 28px; display: flex; flex-direction: column; position: relative; }
+  .plan h3 { font-size: 20px; margin-bottom: 6px; }
+  .plan .p-tag { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+  .plan .p-price { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 40px; color: var(--navy); line-height: 1; }
+  .plan .p-price small { font-size: 14px; color: var(--faint); font-weight: 500; }
+  .plan .p-save { font-size: 13px; font-weight: 600; color: var(--teal-deep); margin: 10px 0 22px; }
+  .plan ul { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 26px; flex: 1; }
+  .plan ul li { display: flex; gap: 10px; font-size: 14.5px; color: var(--ink); }
+  .plan ul li i { color: var(--teal); font-size: 17px; flex-shrink: 0; }
+  .plan .btn { width: 100%; justify-content: center; }
+  .plan.popular { background: var(--navy); color: #fff; box-shadow: var(--shadow-md); border-color: var(--navy); }
+  .plan.popular h3, .plan.popular .p-price { color: #fff; }
+  .plan.popular .p-tag { color: rgba(255,255,255,.6); }
+  .plan.popular ul li { color: rgba(255,255,255,.82); }
+  .plan.popular .p-save { color: var(--teal); }
+  .plan .ribbon { position: absolute; top: 20px; right: 20px; font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; background: var(--teal); color: #fff; padding: 5px 11px; border-radius: 20px; }
+  @media (max-width: 860px) { .plan-grid { grid-template-columns: 1fr; } }
+
+  /* faq */
+  .faq { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  details.q { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 4px 20px; box-shadow: var(--shadow-sm); }
+  details.q summary { cursor: pointer; list-style: none; padding: 16px 0; font-weight: 600; font-size: 16px; color: var(--navy); display: flex; align-items: center; justify-content: space-between; }
+  details.q summary::-webkit-details-marker { display: none; }
+  details.q summary .ic { color: var(--teal); transition: transform .2s; font-size: 20px; }
+  details.q[open] summary .ic { transform: rotate(45deg); }
+  details.q p { padding: 0 0 18px; font-size: 14.5px; color: var(--muted); }
+
+  .cta-band { padding: 92px 0; }
+  .cta-inner { position: relative; overflow: hidden; border-radius: 26px; background: var(--navy); color: #fff; padding: 64px 56px; text-align: center; }
+  .cta-inner::before { content:""; position:absolute; inset:0; background: radial-gradient(50% 120% at 50% 0%, rgba(23,164,122,.26), transparent 60%); }
+  .cta-inner > * { position: relative; z-index: 1; }
+  .cta-inner h2 { color:#fff; font-size: clamp(30px,4.6vw,46px); margin-bottom:16px; }
+  .cta-inner p { font-size:18px; color:rgba(255,255,255,.7); max-width:520px; margin:0 auto 30px; }
+  @media (max-width:560px){ .cta-inner{ padding:48px 26px; } }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="/" aria-label="+65Cleaning by PlusGroup — home">
+      <svg class="mark" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="17" y="5" width="4" height="28" rx="2" fill="#17a47a"/>
+        <rect x="5" y="17" width="28" height="4" rx="2" fill="#17a47a"/>
+        <circle cx="19" cy="19" r="17" stroke="#17a47a" stroke-width="1" opacity="0.2" fill="none"/>
+        <circle cx="19" cy="19" r="12" stroke="#17a47a" stroke-width="0.5" opacity="0.12" fill="none"/>
+      </svg>
+      <span class="wordmark">
+        <span class="wm-main"><span class="accent">+65</span>Cleaning</span>
+        <span class="wm-sub">By <span class="accent">Plus</span>Group</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu"><i class="ti ti-menu-2"></i></button>
+    <nav class="nav-links">
+      <a class="lnk" href="/">Home</a>
+      <a class="lnk active" href="/services">Services</a>
+      <a class="lnk" href="/about">About</a>
+      <a class="lnk" href="/book">Book</a>
+      <a class="btn btn-primary nav-cta" href="/book">Book a clean <i class="ti ti-arrow-right"></i></a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow">Services &amp; pricing</span>
+    <h1>Pick the clean your home needs today</h1>
+    <p>Clear starting prices, no surprises. Final quotes adjust for home size and add-ons — you'll see the estimate update as you book.</p>
+  </div>
+</section>
+
+<!-- ===== SERVICE DETAIL ===== -->
+<section class="section wrap">
+  <div class="svc-detail">
+
+    <article class="sd-row card reveal">
+      <div class="sd-left">
+        <div class="sd-ico"><i class="ti ti-home"></i></div>
+        <h3>Essential Clean</h3>
+        <p class="sd-desc">The everyday reset — kitchen, bathrooms, living areas and bedrooms tidied, dusted and floors done.</p>
+        <div class="sd-price">$120<span>from · per visit</span></div>
+      </div>
+      <ul class="sd-incl">
+        <li><i class="ti ti-check"></i> Kitchen surfaces &amp; stovetop</li>
+        <li><i class="ti ti-check"></i> Bathroom clean &amp; sanitise</li>
+        <li><i class="ti ti-check"></i> Dusting of reachable surfaces</li>
+        <li><i class="ti ti-check"></i> Vacuum &amp; mop all floors</li>
+        <li><i class="ti ti-check"></i> Beds made &amp; rooms tidied</li>
+        <li><i class="ti ti-check"></i> Bins emptied &amp; relined</li>
+      </ul>
+    </article>
+
+    <article class="sd-row card reveal">
+      <div class="sd-left">
+        <span class="sd-tag">Most popular</span>
+        <div class="sd-ico"><i class="ti ti-sparkles"></i></div>
+        <h3>Full Deep Clean</h3>
+        <p class="sd-desc">Everything in Essential, plus the build-up a routine clean leaves behind. The best way to start a subscription.</p>
+        <div class="sd-price">$180<span>from · per visit</span></div>
+      </div>
+      <ul class="sd-incl">
+        <li><i class="ti ti-check"></i> Everything in Essential Clean</li>
+        <li><i class="ti ti-check"></i> Inside oven, microwave &amp; fridge</li>
+        <li><i class="ti ti-check"></i> Inside cupboards &amp; drawers</li>
+        <li><i class="ti ti-check"></i> Grout, tiles &amp; limescale descale</li>
+        <li><i class="ti ti-check"></i> Skirting, switches &amp; door frames</li>
+        <li><i class="ti ti-check"></i> Interior windows &amp; mirrors</li>
+      </ul>
+    </article>
+
+    <article class="sd-row card reveal">
+      <div class="sd-left">
+        <div class="sd-ico"><i class="ti ti-truck-loading"></i></div>
+        <h3>Move In / Out</h3>
+        <p class="sd-desc">A deep clean for an empty property — get your deposit back or move into a genuinely fresh space.</p>
+        <div class="sd-price">$250<span>from · per property</span></div>
+      </div>
+      <ul class="sd-incl">
+        <li><i class="ti ti-check"></i> Full property deep clean</li>
+        <li><i class="ti ti-check"></i> Inside all cabinets &amp; wardrobes</li>
+        <li><i class="ti ti-check"></i> Appliance interiors &amp; exteriors</li>
+        <li><i class="ti ti-check"></i> Wall spot-cleaning &amp; marks</li>
+        <li><i class="ti ti-check"></i> Window tracks &amp; balcony</li>
+        <li><i class="ti ti-check"></i> Handover-ready finish</li>
+      </ul>
+    </article>
+
+    <article class="sd-row card reveal">
+      <div class="sd-left">
+        <div class="sd-ico"><i class="ti ti-tools"></i></div>
+        <h3>Post-Renovation</h3>
+        <p class="sd-desc">Fine construction dust gets everywhere. We remove it from every surface, track and grille so your home is liveable again.</p>
+        <div class="sd-price">$300<span>from · per property</span></div>
+      </div>
+      <ul class="sd-incl">
+        <li><i class="ti ti-check"></i> Fine dust &amp; debris removal</li>
+        <li><i class="ti ti-check"></i> Paint flecks &amp; adhesive residue</li>
+        <li><i class="ti ti-check"></i> Aircon grilles &amp; vents wiped</li>
+        <li><i class="ti ti-check"></i> Window tracks &amp; frames</li>
+        <li><i class="ti ti-check"></i> Floors triple-cleaned</li>
+        <li><i class="ti ti-check"></i> Full surface polish</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- ===== ADD-ONS ===== -->
+<section class="section pad-sm wrap">
+  <div class="section-head reveal">
+    <span class="eyebrow">Make it yours</span>
+    <h2>Add-ons</h2>
+    <p>Tack any of these onto a clean at checkout — only pay for what you need.</p>
+  </div>
+  <div class="addon-grid">
+    <div class="addon card reveal"><div class="a-ic"><i class="ti ti-windmill"></i></div><div class="a-name">Interior windows</div><div class="a-price">+$40</div></div>
+    <div class="addon card reveal"><div class="a-ic"><i class="ti ti-flame"></i></div><div class="a-name">Oven deep clean</div><div class="a-price">+$35</div></div>
+    <div class="addon card reveal"><div class="a-ic"><i class="ti ti-fridge"></i></div><div class="a-name">Fridge clean out</div><div class="a-price">+$30</div></div>
+    <div class="addon card reveal"><div class="a-ic"><i class="ti ti-wash-machine"></i></div><div class="a-name">Laundry room</div><div class="a-price">+$25</div></div>
+    <div class="addon card reveal"><div class="a-ic"><i class="ti ti-car-garage"></i></div><div class="a-name">Garage</div><div class="a-price">+$60</div></div>
+    <div class="addon card reveal"><div class="a-ic"><i class="ti ti-plus"></i></div><div class="a-name">Something else?</div><div class="a-price" style="font-size:13px;">Just ask</div></div>
+  </div>
+</section>
+
+<!-- ===== PLANS ===== -->
+<section class="plans-band">
+  <div class="wrap section">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Subscriptions</span>
+      <h2>Keep it clean for less</h2>
+      <p>Recurring visits with the same trusted cleaner, billed per visit. Pause, reschedule or cancel anytime.</p>
+    </div>
+    <div class="plan-grid">
+      <div class="plan card reveal">
+        <h3>One-off</h3>
+        <div class="p-tag">A single clean, whenever you need it</div>
+        <div class="p-price">$120<small> +</small></div>
+        <div class="p-save">Standard rate</div>
+        <ul>
+          <li><i class="ti ti-check"></i> Any service or add-on</li>
+          <li><i class="ti ti-check"></i> No commitment</li>
+          <li><i class="ti ti-check"></i> Re-clean guarantee</li>
+        </ul>
+        <a class="btn btn-ghost" href="/book">Book a one-off</a>
+      </div>
+      <div class="plan popular card reveal">
+        <span class="ribbon">Best value</span>
+        <h3>Fortnightly</h3>
+        <div class="p-tag">A visit every two weeks</div>
+        <div class="p-price">$102<small> +</small></div>
+        <div class="p-save">Save 15% on every visit</div>
+        <ul>
+          <li><i class="ti ti-check"></i> Same cleaner each time</li>
+          <li><i class="ti ti-check"></i> Priority scheduling</li>
+          <li><i class="ti ti-check"></i> Pause or skip anytime</li>
+          <li><i class="ti ti-check"></i> Re-clean guarantee</li>
+        </ul>
+        <a class="btn btn-primary" href="/book">Start fortnightly</a>
+      </div>
+      <div class="plan card reveal">
+        <h3>Weekly</h3>
+        <div class="p-tag">A visit every week</div>
+        <div class="p-price">$96<small> +</small></div>
+        <div class="p-save">Save 20% on every visit</div>
+        <ul>
+          <li><i class="ti ti-check"></i> Same cleaner each time</li>
+          <li><i class="ti ti-check"></i> Top priority scheduling</li>
+          <li><i class="ti ti-check"></i> Pause or skip anytime</li>
+          <li><i class="ti ti-check"></i> Re-clean guarantee</li>
+        </ul>
+        <a class="btn btn-ghost" href="/book">Start weekly</a>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--faint);font-size:13px;margin-top:22px;">Subscription prices shown for an Essential Clean of a small home. Final price adjusts for service, home size and add-ons.</p>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section wrap">
+  <div class="section-head center reveal">
+    <span class="eyebrow">Good to know</span>
+    <h2>Questions, answered</h2>
+  </div>
+  <div class="faq">
+    <details class="q reveal"><summary>Do I need to provide cleaning supplies? <i class="ti ti-plus ic"></i></summary><p>No — our cleaners arrive with professional-grade equipment and products. If you'd prefer we use your own supplies (for sensitivities or specific surfaces), just leave a note at booking.</p></details>
+    <details class="q reveal"><summary>What if I'm not happy with the clean? <i class="ti ti-plus ic"></i></summary><p>Let us know within 24 hours and we'll send a cleaner back to put it right at no extra charge. That's our re-clean guarantee on every visit.</p></details>
+    <details class="q reveal"><summary>Do I have to be home? <i class="ti ti-plus ic"></i></summary><p>Not at all. Many customers leave access instructions or a lockbox code. On subscriptions, your regular cleaner gets to know your preferred arrangement.</p></details>
+    <details class="q reveal"><summary>How is the final price decided? <i class="ti ti-plus ic"></i></summary><p>The prices here are starting points. As you book, the estimate adjusts for your home size and any add-ons. For larger or unusually soiled homes we confirm the final figure before the clean begins.</p></details>
+    <details class="q reveal"><summary>Can I cancel or reschedule? <i class="ti ti-plus ic"></i></summary><p>Yes. There are no lock-in contracts. You can reschedule or cancel any visit free of charge up to 24 hours beforehand.</p></details>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-band wrap">
+  <div class="cta-inner reveal">
+    <h2>Find your price in two minutes</h2>
+    <p>Choose a service, add extras and see a transparent estimate before you commit.</p>
+    <a class="btn btn-primary" href="/book" style="padding:15px 30px;font-size:16px;">Start booking <i class="ti ti-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="/">
+          <svg class="mark" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="17" y="5" width="4" height="28" rx="2" fill="#17a47a"/>
+            <rect x="5" y="17" width="28" height="4" rx="2" fill="#17a47a"/>
+            <circle cx="19" cy="19" r="17" stroke="#17a47a" stroke-width="1" opacity="0.3" fill="none"/>
+          </svg>
+          <span class="wordmark">
+            <span class="wm-main"><span class="accent">+65</span>Cleaning</span>
+            <span class="wm-sub">By <span class="accent">Plus</span>Group</span>
+          </span>
+        </a>
+        <p class="blurb">Spotless homes, on subscription. Trusted home cleaning across Singapore — one-off or recurring, always insured.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services">Essential Clean</a></li>
+          <li><a href="/services">Full Deep Clean</a></li>
+          <li><a href="/services">Move In / Out</a></li>
+          <li><a href="/services">Post-Renovation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about">About us</a></li>
+          <li><a href="/services">Pricing &amp; plans</a></li>
+          <li><a href="/book">Book a clean</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="mailto:hello@plus65cleaning.sg">hello@plus65cleaning.sg</a></li>
+          <li><a href="tel:+6562000065">+65 6200 0065</a></li>
+          <li><span style="color:rgba(255,255,255,.4)">Mon–Sat · 8am–7pm</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PlusGroup Pte Ltd · +65Cleaning. All rights reserved.</span>
+      <span>Spotless homes · On subscription</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/site.js" defer></script>
+</body>
+</html>
