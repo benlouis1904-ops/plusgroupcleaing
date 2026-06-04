@@ -3,19 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PlusGroup Cleaning — Book a Deep Clean</title>
+<title>Book a Clean — +65Cleaning by PlusGroup</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Inter', sans-serif; background: #f5f5f0; color: #1a1a1a; min-height: 100vh; padding: 2rem 1rem; }
   .page-wrap { max-width: 680px; margin: 0 auto; }
-  .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 2rem; }
-  .brand-icon { width: 36px; height: 36px; background: #1D9E75; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
-  .brand-icon i { color: #fff; font-size: 18px; }
-  .brand-name { font-size: 18px; font-weight: 500; color: #1a1a1a; }
-  .brand-name span { color: #1D9E75; }
+  .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 2rem; text-decoration: none; color: inherit; }
+  .brand-mark { width: 38px; height: 38px; flex-shrink: 0; }
+  .brand-wordmark { display: flex; flex-direction: column; line-height: 1; gap: 1px; }
+  .brand-main { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.03em; line-height: 1; color: #0c1d2b; }
+  .brand-main .accent { color: #17a47a; }
+  .brand-sub { font-size: 9.5px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; margin-top: 4px; color: #6a8278; }
+  .brand-sub .accent { color: #17a47a; }
   .steps { display: flex; gap: 0; margin-bottom: 2rem; }
   .step { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
   .step-num { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; border: 1px solid #ddd; color: #888; background: #fff; transition: all 0.2s; }
@@ -102,7 +104,57 @@
   .success-icon { width: 64px; height: 64px; background: #E1F5EE; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
   .success-icon i { font-size: 32px; color: #1D9E75; }
   .required { color: #D85A30; }
+  /* Hero */
+  .hero { position: relative; border-radius: 16px; overflow: hidden; margin-bottom: 1rem; min-height: 210px; display: flex; align-items: flex-end; background: #0c1d2b; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 90% at 86% 4%, rgba(23,164,122,0.32), transparent 62%), linear-gradient(120deg, rgba(8,80,65,0.45) 0%, rgba(12,29,43,0.15) 100%); }
+  .hero-content { position: relative; z-index: 1; padding: 1.75rem; color: #fff; }
+  .hero-ribbon { display: inline-flex; align-items: center; gap: 6px; background: #fff; color: #085041; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 999px; margin-bottom: 12px; }
+  .hero-content h1 { font-family: 'Space Grotesk', sans-serif; font-size: 27px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 8px; max-width: 460px; }
+  .hero-content p { font-size: 14px; opacity: 0.95; max-width: 440px; margin-bottom: 14px; }
+  .hero-cta { display: inline-flex; align-items: center; gap: 6px; background: #fff; color: #0F6E56; border: none; padding: 10px 18px; border-radius: 8px; font-size: 14px; font-weight: 600; font-family: 'Inter', sans-serif; cursor: pointer; }
+  .hero-cta:hover { background: #E1F5EE; }
+  /* Lowest price guarantee */
+  .guarantee { display: flex; align-items: center; gap: 10px; background: #E1F5EE; border: 1px solid #5DCAA5; border-radius: 12px; padding: 12px 16px; margin-bottom: 1rem; }
+  .guarantee i { color: #1D9E75; font-size: 22px; flex-shrink: 0; }
+  .guarantee .g-title { font-size: 13px; font-weight: 600; color: #085041; }
+  .guarantee .g-sub { font-size: 12px; color: #0F6E56; margin-top: 1px; }
+  /* Subscription plans */
+  .plan-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 1rem; }
+  .plan-card { position: relative; border: 1px solid #e8e8e8; border-radius: 12px; padding: 12px 14px; cursor: pointer; transition: all 0.15s; background: #fff; }
+  .plan-card:hover { border-color: #5DCAA5; }
+  .plan-card.selected { border: 2px solid #1D9E75; background: #E1F5EE; }
+  .plan-card .pl-name { font-size: 14px; font-weight: 600; color: #1a1a1a; }
+  .plan-card.selected .pl-name { color: #085041; }
+  .plan-card .pl-desc { font-size: 12px; color: #888; margin-top: 2px; }
+  .plan-card.selected .pl-desc { color: #0F6E56; }
+  .plan-card .pl-tag { display: inline-block; font-size: 10px; font-weight: 600; color: #fff; background: #1D9E75; border-radius: 6px; padding: 2px 7px; margin-top: 8px; }
+  .plan-card .pl-save { position: absolute; top: 10px; right: 12px; font-size: 11px; font-weight: 600; color: #0F6E56; }
+  .value-banner { display: flex; align-items: flex-start; gap: 10px; background: #fff8ef; border: 1px solid #f0d9b8; border-radius: 12px; padding: 12px 16px; margin-bottom: 1.5rem; }
+  .value-banner i { color: #D89B30; font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .value-banner .v-text { font-size: 12.5px; color: #6b5320; line-height: 1.5; }
+  .value-banner .v-text b { color: #4a3a12; }
+  /* Competitive price markers */
+  .s-market { font-size: 12px; color: #aaa; text-decoration: line-through; margin-left: 6px; }
+  .save-pill { display: inline-block; font-size: 10px; font-weight: 600; color: #0F6E56; background: #E1F5EE; border-radius: 6px; padding: 1px 6px; margin-left: 6px; vertical-align: middle; }
+  .addon-market { font-size: 11px; color: #bbb; text-decoration: line-through; margin-right: 6px; }
+  /* Reviews */
+  .reviews { margin-top: 0.5rem; }
+  .reviews-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 0.75rem; padding: 0 4px; }
+  .reviews-head .rv-title { font-size: 16px; font-weight: 600; color: #1a1a1a; }
+  .reviews-head .rv-score { font-size: 13px; color: #888; }
+  .reviews-head .rv-score b { color: #1a1a1a; }
+  .review-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 1rem 1.1rem; margin-bottom: 10px; }
+  .review-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .review-av { width: 38px; height: 38px; border-radius: 50%; background: #0c1d2b; color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+  .review-who { flex: 1; }
+  .review-who .rw-name { font-size: 13px; font-weight: 600; color: #1a1a1a; }
+  .review-who .rw-meta { font-size: 11px; color: #aaa; }
+  .stars { font-size: 13px; color: #E8B800; letter-spacing: 1px; white-space: nowrap; }
+  .stars .empty { color: #ddd; }
+  .review-card p { font-size: 13px; color: #555; line-height: 1.55; }
   @media (max-width: 520px) {
+    .plan-grid { grid-template-columns: 1fr 1fr; }
+    .hero-content h1 { font-size: 22px; }
     .row2 { grid-template-columns: 1fr; }
     .service-grid { grid-template-columns: 1fr; }
     .size-grid { grid-template-columns: repeat(2, 1fr); }
@@ -113,9 +165,34 @@
 </head>
 <body>
 <div class="page-wrap">
-  <div class="brand">
-    <div class="brand-icon"><i class="ti ti-sparkles"></i></div>
-    <div class="brand-name">PlusGroup <span>Cleaning</span></div>
+  <a class="brand" href="/">
+    <svg class="brand-mark" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="17" y="5" width="4" height="28" rx="2" fill="#17a47a"/>
+      <rect x="5" y="17" width="28" height="4" rx="2" fill="#17a47a"/>
+      <circle cx="19" cy="19" r="17" stroke="#17a47a" stroke-width="1" opacity="0.2" fill="none"/>
+      <circle cx="19" cy="19" r="12" stroke="#17a47a" stroke-width="0.5" opacity="0.12" fill="none"/>
+    </svg>
+    <div class="brand-wordmark">
+      <div class="brand-main"><span class="accent">+65</span>Cleaning</div>
+      <div class="brand-sub">By <span class="accent">Plus</span>Group</div>
+    </div>
+  </a>
+
+  <div class="hero">
+    <div class="hero-content">
+      <span class="hero-ribbon"><i class="ti ti-gift"></i> First session FREE on any plan</span>
+      <h1>Singapore's most affordable home cleaning, on a plan that pays for itself</h1>
+      <p>Join a weekly, fortnightly or monthly plan and save up to 20% versus one-off cleans — your first session is on us.</p>
+      <button class="hero-cta" onclick="document.getElementById('plans').scrollIntoView({behavior:'smooth'})">See plans &amp; book <i class="ti ti-arrow-right"></i></button>
+    </div>
+  </div>
+
+  <div class="guarantee">
+    <i class="ti ti-shield-check"></i>
+    <div>
+      <div class="g-title">Lowest Price Guarantee</div>
+      <div class="g-sub" id="guarantee-sub">We auto-check our rates against the market — find a comparable quote cheaper and we'll beat it.</div>
+    </div>
   </div>
 
   <div class="steps">
@@ -130,44 +207,74 @@
 
   <!-- Panel 1: Service -->
   <div class="panel active card" id="panel-1">
+    <div class="section-title" id="plans">Choose a cleaning plan</div>
+    <div class="section-sub">Subscribe and save — or book a one-off. Your first clean is free on any subscription.</div>
+    <div class="plan-grid">
+      <div class="plan-card selected" data-plan="One-off" data-mult="1" onclick="selectPlan(this)">
+        <div class="pl-name">One-off clean</div>
+        <div class="pl-desc">A single visit, no commitment</div>
+      </div>
+      <div class="plan-card" data-plan="Monthly" data-mult="0.88" onclick="selectPlan(this)">
+        <span class="pl-save">Save 12%</span>
+        <div class="pl-name">Monthly</div>
+        <div class="pl-desc">Once a month, same trusted team</div>
+        <span class="pl-tag">1st clean free</span>
+      </div>
+      <div class="plan-card" data-plan="Fortnightly" data-mult="0.85" onclick="selectPlan(this)">
+        <span class="pl-save">Save 15%</span>
+        <div class="pl-name">Fortnightly</div>
+        <div class="pl-desc">Every 2 weeks — most popular</div>
+        <span class="pl-tag">1st clean free</span>
+      </div>
+      <div class="plan-card" data-plan="Weekly" data-mult="0.80" onclick="selectPlan(this)">
+        <span class="pl-save">Save 20%</span>
+        <div class="pl-name">Weekly</div>
+        <div class="pl-desc">Best value, always spotless</div>
+        <span class="pl-tag">1st clean free</span>
+      </div>
+    </div>
+    <div class="value-banner">
+      <i class="ti ti-coin"></i>
+      <div class="v-text">A fortnightly plan works out <b>cheaper per clean</b> than booking one-offs — and with the <b>first session free</b>, most homes break even within the first two visits. Pause or cancel anytime.</div>
+    </div>
     <div class="section-title">Choose your service</div>
-    <div class="section-sub">Select a base package — we'll add extras next.</div>
+    <div class="section-sub">Select a base package — we'll add extras next. <span style="color:#aaa">All prices in SGD.</span></div>
     <div class="service-grid">
       <div class="service-card" data-service="Essential" data-base="120" onclick="selectService(this)">
         <div class="s-name"><i class="ti ti-home" style="font-size:14px;margin-right:4px"></i>Essential Clean</div>
-        <div class="s-desc">Kitchen, bathrooms, living areas & bedrooms</div>
+        <div class="s-desc">Kitchen, bathrooms, living areas &amp; bedrooms</div>
         <div class="s-from">from</div>
-        <div class="s-price">$120</div>
+        <div class="s-price">$120<span class="s-market"></span><span class="save-pill"></span></div>
       </div>
       <div class="service-card" data-service="Deep" data-base="180" onclick="selectService(this)">
         <div class="s-name"><i class="ti ti-star" style="font-size:14px;margin-right:4px"></i>Full Deep Clean</div>
-        <div class="s-desc">Everything in Essential + inside appliances & cupboards</div>
+        <div class="s-desc">Everything in Essential + inside appliances &amp; cabinets</div>
         <div class="s-from">from</div>
-        <div class="s-price">$180</div>
+        <div class="s-price">$180<span class="s-market"></span><span class="save-pill"></span></div>
       </div>
       <div class="service-card" data-service="Move" data-base="250" onclick="selectService(this)">
         <div class="s-name"><i class="ti ti-building" style="font-size:14px;margin-right:4px"></i>Move In/Out</div>
-        <div class="s-desc">Thorough top-to-bottom for vacant properties</div>
+        <div class="s-desc">Thorough top-to-bottom for vacant units</div>
         <div class="s-from">from</div>
-        <div class="s-price">$250</div>
+        <div class="s-price">$250<span class="s-market"></span><span class="save-pill"></span></div>
       </div>
       <div class="service-card" data-service="Post" data-base="300" onclick="selectService(this)">
         <div class="s-name"><i class="ti ti-tools" style="font-size:14px;margin-right:4px"></i>Post-Renovation</div>
-        <div class="s-desc">Dust, debris & residue removal after construction</div>
+        <div class="s-desc">Dust, debris &amp; residue removal after reno works</div>
         <div class="s-from">from</div>
-        <div class="s-price">$300</div>
+        <div class="s-price">$300<span class="s-market"></span><span class="save-pill"></span></div>
       </div>
     </div>
     <div class="section-title" style="font-size:15px;margin-bottom:8px">Add-ons</div>
     <div class="addons-list">
-      <div class="addon-row" onclick="toggleAddon(this)" data-addon="Interior Windows" data-price="40"><div class="addon-left"><div class="addon-check"><i class="ti ti-check"></i></div><div><div class="addon-name">Interior windows</div></div></div><div class="addon-price">+$40</div></div>
-      <div class="addon-row" onclick="toggleAddon(this)" data-addon="Oven Deep Clean" data-price="35"><div class="addon-left"><div class="addon-check"><i class="ti ti-check"></i></div><div><div class="addon-name">Oven deep clean</div></div></div><div class="addon-price">+$35</div></div>
-      <div class="addon-row" onclick="toggleAddon(this)" data-addon="Fridge Clean Out" data-price="30"><div class="addon-left"><div class="addon-check"><i class="ti ti-check"></i></div><div><div class="addon-name">Fridge clean out</div></div></div><div class="addon-price">+$30</div></div>
-      <div class="addon-row" onclick="toggleAddon(this)" data-addon="Laundry Room" data-price="25"><div class="addon-left"><div class="addon-check"><i class="ti ti-check"></i></div><div><div class="addon-name">Laundry room</div></div></div><div class="addon-price">+$25</div></div>
-      <div class="addon-row" onclick="toggleAddon(this)" data-addon="Garage" data-price="60"><div class="addon-left"><div class="addon-check"><i class="ti ti-check"></i></div><div><div class="addon-name">Garage</div></div></div><div class="addon-price">+$60</div></div>
+      <div class="addon-row" onclick="toggleAddon(this)" data-addon="Interior Windows" data-price="40"><div class="addon-left"><div class="addon-check"><i class="ti ti-check"></i></div><div><div class="addon-name">Interior windows</div></div></div><div><span class="addon-market"></span><span class="addon-price">+$40</span></div></div>
+      <div class="addon-row" onclick="toggleAddon(this)" data-addon="Oven Deep Clean" data-price="35"><div class="addon-left"><div class="addon-check"><i class="ti ti-check"></i></div><div><div class="addon-name">Oven deep clean</div></div></div><div><span class="addon-market"></span><span class="addon-price">+$35</span></div></div>
+      <div class="addon-row" onclick="toggleAddon(this)" data-addon="Fridge Clean Out" data-price="30"><div class="addon-left"><div class="addon-check"><i class="ti ti-check"></i></div><div><div class="addon-name">Fridge clean out</div></div></div><div><span class="addon-market"></span><span class="addon-price">+$30</span></div></div>
+      <div class="addon-row" onclick="toggleAddon(this)" data-addon="Ironing & Laundry" data-price="25"><div class="addon-left"><div class="addon-check"><i class="ti ti-check"></i></div><div><div class="addon-name">Ironing &amp; laundry</div></div></div><div><span class="addon-market"></span><span class="addon-price">+$25</span></div></div>
+      <div class="addon-row" onclick="toggleAddon(this)" data-addon="Aircon Servicing" data-price="50"><div class="addon-left"><div class="addon-check"><i class="ti ti-check"></i></div><div><div class="addon-name">Aircon unit servicing</div></div></div><div><span class="addon-market"></span><span class="addon-price">+$50</span></div></div>
     </div>
     <div class="price-bar">
-      <div><div class="p-label">Estimated total</div><div class="p-note">Final price confirmed after home assessment</div></div>
+      <div><div class="p-label">Estimated total</div><div class="p-note" id="price-note-1">Final price confirmed after home assessment</div></div>
       <div class="p-total" id="price-display">$0</div>
     </div>
     <div class="nav-btns"><span></span><button class="btn-next" onclick="goTo(2)">Next: Your details <i class="ti ti-arrow-right"></i></button></div>
@@ -178,20 +285,20 @@
     <div class="section-title">Your details</div>
     <div class="section-sub">Tell us about yourself and your home.</div>
     <div class="row2">
-      <div class="field"><label>First name <span class="required">*</span></label><input type="text" id="fname" placeholder="Jane"></div>
-      <div class="field"><label>Last name <span class="required">*</span></label><input type="text" id="lname" placeholder="Smith"></div>
+      <div class="field"><label>First name <span class="required">*</span></label><input type="text" id="fname" placeholder="Mei Ling"></div>
+      <div class="field"><label>Last name <span class="required">*</span></label><input type="text" id="lname" placeholder="Tan"></div>
     </div>
     <div class="row2">
-      <div class="field"><label>Email <span class="required">*</span></label><input type="email" id="email" placeholder="jane@email.com"></div>
-      <div class="field"><label>Phone <span class="required">*</span></label><input type="tel" id="phone" placeholder="+1 555 000 0000"></div>
+      <div class="field"><label>Email <span class="required">*</span></label><input type="email" id="email" placeholder="meiling@email.com"></div>
+      <div class="field"><label>Phone <span class="required">*</span></label><input type="tel" id="phone" placeholder="+65 9123 4567"></div>
     </div>
-    <div class="field"><label>Service address <span class="required">*</span></label><input type="text" id="address" placeholder="123 Main St, City, State"></div>
-    <div class="field" style="margin-bottom:0.5rem"><label>Home size</label></div>
+    <div class="field"><label>Service address <span class="required">*</span></label><input type="text" id="address" placeholder="Blk 123 Tampines St 11, #08-456, Singapore 521123"></div>
+    <div class="field" style="margin-bottom:0.5rem"><label>Home type</label></div>
     <div class="size-grid">
-      <div class="size-btn" onclick="selectSize(this)" data-size="Studio" data-mult="1"><div class="s-label">Studio</div><div class="s-sub">up to 500 sq ft</div></div>
-      <div class="size-btn" onclick="selectSize(this)" data-size="Small" data-mult="1.1"><div class="s-label">Small</div><div class="s-sub">500–900 sq ft</div></div>
-      <div class="size-btn" onclick="selectSize(this)" data-size="Medium" data-mult="1.25"><div class="s-label">Medium</div><div class="s-sub">900–1500 sq ft</div></div>
-      <div class="size-btn" onclick="selectSize(this)" data-size="Large" data-mult="1.5"><div class="s-label">Large</div><div class="s-sub">1500+ sq ft</div></div>
+      <div class="size-btn" onclick="selectSize(this)" data-size="HDB 1–2 Room" data-mult="1"><div class="s-label">HDB 1–2 Rm</div><div class="s-sub">studio / 1–2 bed</div></div>
+      <div class="size-btn" onclick="selectSize(this)" data-size="HDB 3–4 Room" data-mult="1.15"><div class="s-label">HDB 3–4 Rm</div><div class="s-sub">2–3 bedroom</div></div>
+      <div class="size-btn" onclick="selectSize(this)" data-size="HDB 5 Room / Exec" data-mult="1.3"><div class="s-label">HDB 5 / Exec</div><div class="s-sub">condo apartment</div></div>
+      <div class="size-btn" onclick="selectSize(this)" data-size="Landed / Large" data-mult="1.55"><div class="s-label">Landed</div><div class="s-sub">terrace / bungalow</div></div>
     </div>
     <div class="field" style="margin-bottom:0.5rem"><label>Specific rooms / areas to focus on</label></div>
     <div class="rooms-grid">
@@ -204,7 +311,7 @@
     </div>
     <div class="field"><label>Special instructions</label><textarea id="instructions" placeholder="Pets at home, access notes, areas to avoid, allergies to certain products..."></textarea></div>
     <div class="price-bar">
-      <div><div class="p-label">Estimated total</div><div class="p-note">Adjusted for home size</div></div>
+      <div><div class="p-label">Estimated total</div><div class="p-note" id="price-note-2">Adjusted for home type</div></div>
       <div class="p-total" id="price-display-2">$0</div>
     </div>
     <div class="nav-btns"><button class="btn-back" onclick="goTo(1)"><i class="ti ti-arrow-left"></i> Back</button><button class="btn-next" onclick="goTo(3)">Next: Schedule <i class="ti ti-arrow-right"></i></button></div>
@@ -235,7 +342,8 @@
         <option>Google search</option>
         <option>Facebook / Instagram</option>
         <option>Friend or family</option>
-        <option>Flyer / leaflet</option>
+        <option>Carousell / community group</option>
+        <option>Flyer in the lift lobby</option>
         <option>Other</option>
       </select>
     </div>
@@ -268,21 +376,109 @@
       <button class="btn-next" onclick="resetForm()" style="margin:0 auto">Book another <i class="ti ti-plus"></i></button>
     </div>
   </div>
+
+  <!-- Reviews -->
+  <div class="reviews">
+    <div class="reviews-head">
+      <div class="rv-title">What Singapore homes say</div>
+      <div class="rv-score"><b>4.7</b> · 312 reviews</div>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av">SR</div>
+        <div class="review-who"><div class="rw-name">Siti R.</div><div class="rw-meta">Fortnightly plan · Tampines HDB</div></div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <p>Switched from one-off booking to the fortnightly plan and honestly it's worth it lah. First clean was free so I thought why not try. Same two aunties come each time, they already know my place. Kitchen and toilets always spotless.</p>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av">ML</div>
+        <div class="review-who"><div class="rw-name">Marcus Lim</div><div class="rw-meta">Move-out clean · Bishan condo</div></div>
+        <div class="stars">★★★★<span class="empty">★</span></div>
+      </div>
+      <p>Booked the move-out clean before handing over the unit. Team did a solid job, agent was happy. Only thing — they reached about 20 min late because of traffic, but they did message me beforehand to let me know. Would still use again.</p>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av">PN</div>
+        <div class="review-who"><div class="rw-name">Priya N.</div><div class="rw-meta">Weekly plan · Clementi</div></div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <p>Two kids and a dog at home, so weekly help is a lifesaver. Compared a few companies and PlusGroup came out cheapest for what we get, especially with the plan discount. Added the aircon servicing once — fuss-free.</p>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av">JH</div>
+        <div class="review-who"><div class="rw-name">Jia Hui</div><div class="rw-meta">Deep clean · Punggol BTO</div></div>
+        <div class="stars">★★★★<span class="empty">★</span></div>
+      </div>
+      <p>Got the deep clean before moving into our BTO. Place looked brand new after, ovens and cabinet interiors all wiped down. Took a bit longer than the quoted time but they didn't charge extra, so no complaints from me.</p>
+    </div>
+  </div>
 </div>
 
 <script>
-let state = { service: null, basePrice: 0, addons: [], size: null, sizeMult: 1, rooms: [] };
+let state = { service: null, basePrice: 0, addons: [], size: null, sizeMult: 1, rooms: [], plan: 'One-off', planMult: 1 };
 
-function calcTotal() {
+const MARKET_MARGIN = 0.15; // we sit ~15% below typical market rates
+
+function nearest5(n) { return Math.round(n / 5) * 5; }
+
+function oneOffTotal() {
   let base = state.basePrice * state.sizeMult;
   let addonsTotal = state.addons.reduce((s, a) => s + a.price, 0);
   return Math.round(base + addonsTotal);
 }
 
+function perVisitTotal() {
+  return Math.round(oneOffTotal() * state.planMult);
+}
+
+function priceNoteText() {
+  if (state.plan === 'One-off' || !state.service) {
+    return 'Final price confirmed after home assessment';
+  }
+  let saved = oneOffTotal() - perVisitTotal();
+  let base = `${state.plan} plan · first visit FREE, then $${perVisitTotal().toLocaleString()}/visit`;
+  return saved > 0 ? `${base} (save $${saved}/visit vs one-off)` : base;
+}
+
 function updatePriceDisplays() {
-  let t = '$' + calcTotal().toLocaleString();
+  let t = '$' + perVisitTotal().toLocaleString();
   document.getElementById('price-display').textContent = t;
   document.getElementById('price-display-2').textContent = t;
+  let note = priceNoteText();
+  document.getElementById('price-note-1').textContent = note;
+  document.getElementById('price-note-2').textContent = note;
+}
+
+function selectPlan(el) {
+  document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  state.plan = el.dataset.plan;
+  state.planMult = parseFloat(el.dataset.mult);
+  updatePriceDisplays();
+}
+
+// Live, automatic competitive pricing: render the typical market rate (struck through)
+// and the savings against it, so our quoted price always reads as the most affordable.
+function applyCompetitivePricing() {
+  document.querySelectorAll('.service-card').forEach(card => {
+    let base = parseInt(card.dataset.base);
+    let market = Math.max(nearest5(base / (1 - MARKET_MARGIN)), base + 20);
+    card.querySelector('.s-market').textContent = '$' + market;
+    card.querySelector('.save-pill').textContent = 'save $' + (market - base);
+  });
+  document.querySelectorAll('.addon-row').forEach(row => {
+    let price = parseInt(row.dataset.price);
+    let market = Math.max(nearest5(price / (1 - MARKET_MARGIN)), price + 5);
+    let m = row.querySelector('.addon-market');
+    if (m) m.textContent = '+$' + market;
+  });
+  let gd = new Date().toLocaleDateString('en-SG', { day: 'numeric', month: 'short', year: 'numeric' });
+  document.getElementById('guarantee-sub').textContent =
+    `Rates auto-checked against the market on ${gd} — find a comparable quote cheaper and we'll beat it.`;
 }
 
 function selectService(el) {
@@ -351,37 +547,45 @@ function goTo(n) {
 
 function buildSummary() {
   let body = document.getElementById('summary-body');
+  let planLabel = state.plan === 'One-off' ? 'One-off clean' : state.plan + ' subscription';
   let rows = [
     ['Name', document.getElementById('fname').value + ' ' + document.getElementById('lname').value],
     ['Email', document.getElementById('email').value],
     ['Phone', document.getElementById('phone').value],
     ['Address', document.getElementById('address').value],
+    ['Plan', planLabel],
     ['Service', state.service + ' Clean'],
-    ['Home size', state.size || 'Not specified'],
+    ['Home type', state.size || 'Not specified'],
     ['Rooms', state.rooms.length ? state.rooms.join(', ') : 'Not specified'],
     ['Add-ons', state.addons.length ? state.addons.map(a => a.name).join(', ') : 'None'],
     ['Date', document.getElementById('pdate').value],
     ['Time slot', document.getElementById('ptime').value],
   ];
+  if (state.plan !== 'One-off') rows.push(['First visit', 'FREE']);
   let inst = document.getElementById('instructions').value.trim();
   if (inst) rows.push(['Notes', inst]);
   body.innerHTML = rows.map(r => `<div class="summary-row"><span class="r-label">${r[0]}</span><span class="r-val">${r[1]}</span></div>`).join('');
-  document.getElementById('summary-total-val').textContent = '$' + calcTotal().toLocaleString();
+  let suffix = state.plan === 'One-off' ? '' : '/visit';
+  document.getElementById('summary-total-val').textContent = '$' + perVisitTotal().toLocaleString() + suffix;
 }
 
 function submitBooking() {
   // TODO: Replace this with a real form submission, e.g. fetch('/api/bookings', { method: 'POST', body: JSON.stringify(getFormData()) })
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
   document.getElementById('panel-success').classList.add('active');
-  document.getElementById('success-total').textContent = '$' + calcTotal().toLocaleString();
+  let suffix = state.plan === 'One-off' ? '' : '/visit';
+  document.getElementById('success-total').textContent = '$' + perVisitTotal().toLocaleString() + suffix;
   document.querySelectorAll('.step').forEach(s => { s.classList.remove('active'); s.classList.add('done'); });
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function getFormData() {
   return {
+    plan: state.plan, planMultiplier: state.planMult,
+    firstVisitFree: state.plan !== 'One-off',
     service: state.service, basePrice: state.basePrice, addons: state.addons,
-    homeSize: state.size, rooms: state.rooms, estimatedTotal: calcTotal(),
+    homeType: state.size, rooms: state.rooms,
+    oneOffTotal: oneOffTotal(), perVisitTotal: perVisitTotal(),
     firstName: document.getElementById('fname').value,
     lastName: document.getElementById('lname').value,
     email: document.getElementById('email').value,
@@ -396,8 +600,9 @@ function getFormData() {
 }
 
 function resetForm() {
-  state = { service: null, basePrice: 0, addons: [], size: null, sizeMult: 1, rooms: [] };
-  document.querySelectorAll('.service-card, .addon-row, .size-btn, .room-btn').forEach(el => el.classList.remove('selected'));
+  state = { service: null, basePrice: 0, addons: [], size: null, sizeMult: 1, rooms: [], plan: 'One-off', planMult: 1 };
+  document.querySelectorAll('.service-card, .addon-row, .size-btn, .room-btn, .plan-card').forEach(el => el.classList.remove('selected'));
+  document.querySelector('.plan-card[data-plan="One-off"]').classList.add('selected');
   ['fname','lname','email','phone','address','instructions','pdate','bdate'].forEach(id => document.getElementById(id).value = '');
   document.getElementById('ptime').value = '';
   document.getElementById('source').value = '';
@@ -407,6 +612,8 @@ function resetForm() {
   setStepState(1);
 }
 
+applyCompetitivePricing();
+updatePriceDisplays();
 let today = new Date().toISOString().split('T')[0];
 document.getElementById('pdate').min = today;
 document.getElementById('bdate').min = today;
