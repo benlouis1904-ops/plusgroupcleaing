@@ -128,48 +128,82 @@
     <div class="step" id="step-4"><div class="step-num">4</div><div class="step-label">Confirm</div></div>
   </div>
 
-  <!-- Panel 1: Service -->
+  <!-- Panel 1: Service / Plan -->
   <div class="panel active card" id="panel-1">
-    <div class="section-title">Choose your service</div>
-    <div class="section-sub">Select a base package — we'll add extras next.</div>
-    <div class="service-grid">
-      <div class="service-card" data-service="Essential" data-base="120" onclick="selectService(this)">
-        <div class="s-name"><i class="ti ti-home" style="font-size:14px;margin-right:4px"></i>Essential Clean</div>
-        <div class="s-desc">Kitchen, bathrooms, living areas & bedrooms</div>
-        <div class="s-from">from</div>
-        <div class="s-price">$120</div>
+
+    <!-- One-off variant -->
+    <div id="oneoff-service">
+      <div class="section-title">Choose your service</div>
+      <div class="section-sub">Select a base package — we'll add extras next.</div>
+      <div class="service-grid">
+        <div class="service-card" data-service="Essential" data-base="120" onclick="selectService(this)">
+          <div class="s-name"><i class="ti ti-home" style="font-size:14px;margin-right:4px"></i>Essential Clean</div>
+          <div class="s-desc">Kitchen, bathrooms, living areas & bedrooms</div>
+          <div class="s-from">from</div>
+          <div class="s-price">S$120</div>
+        </div>
+        <div class="service-card" data-service="Deep" data-base="180" onclick="selectService(this)">
+          <div class="s-name"><i class="ti ti-star" style="font-size:14px;margin-right:4px"></i>Full Deep Clean</div>
+          <div class="s-desc">Everything in Essential + inside appliances & cupboards</div>
+          <div class="s-from">from</div>
+          <div class="s-price">S$180</div>
+        </div>
+        <div class="service-card" data-service="Move" data-base="250" onclick="selectService(this)">
+          <div class="s-name"><i class="ti ti-building" style="font-size:14px;margin-right:4px"></i>Move In/Out</div>
+          <div class="s-desc">Thorough top-to-bottom for vacant properties</div>
+          <div class="s-from">from</div>
+          <div class="s-price">S$250</div>
+        </div>
+        <div class="service-card" data-service="Post" data-base="300" onclick="selectService(this)">
+          <div class="s-name"><i class="ti ti-tools" style="font-size:14px;margin-right:4px"></i>Post-Renovation</div>
+          <div class="s-desc">Dust, debris & residue removal after construction</div>
+          <div class="s-from">from</div>
+          <div class="s-price">S$300</div>
+        </div>
       </div>
-      <div class="service-card" data-service="Deep" data-base="180" onclick="selectService(this)">
-        <div class="s-name"><i class="ti ti-star" style="font-size:14px;margin-right:4px"></i>Full Deep Clean</div>
-        <div class="s-desc">Everything in Essential + inside appliances & cupboards</div>
-        <div class="s-from">from</div>
-        <div class="s-price">$180</div>
+      <div class="section-title" style="font-size:15px;margin-bottom:8px">Add-ons</div>
+      <div class="addons-list">
+        <div class="addon-row" onclick="toggleAddon(this)" data-addon="Interior Windows" data-price="40"><div class="addon-left"><div class="addon-check"><i class="ti ti-check"></i></div><div><div class="addon-name">Interior windows</div></div></div><div class="addon-price">+S$40</div></div>
+        <div class="addon-row" onclick="toggleAddon(this)" data-addon="Oven Deep Clean" data-price="35"><div class="addon-left"><div class="addon-check"><i class="ti ti-check"></i></div><div><div class="addon-name">Oven deep clean</div></div></div><div class="addon-price">+S$35</div></div>
+        <div class="addon-row" onclick="toggleAddon(this)" data-addon="Fridge Clean Out" data-price="30"><div class="addon-left"><div class="addon-check"><i class="ti ti-check"></i></div><div><div class="addon-name">Fridge clean out</div></div></div><div class="addon-price">+S$30</div></div>
+        <div class="addon-row" onclick="toggleAddon(this)" data-addon="Laundry Room" data-price="25"><div class="addon-left"><div class="addon-check"><i class="ti ti-check"></i></div><div><div class="addon-name">Laundry room</div></div></div><div class="addon-price">+S$25</div></div>
       </div>
-      <div class="service-card" data-service="Move" data-base="250" onclick="selectService(this)">
-        <div class="s-name"><i class="ti ti-building" style="font-size:14px;margin-right:4px"></i>Move In/Out</div>
-        <div class="s-desc">Thorough top-to-bottom for vacant properties</div>
-        <div class="s-from">from</div>
-        <div class="s-price">$250</div>
-      </div>
-      <div class="service-card" data-service="Post" data-base="300" onclick="selectService(this)">
-        <div class="s-name"><i class="ti ti-tools" style="font-size:14px;margin-right:4px"></i>Post-Renovation</div>
-        <div class="s-desc">Dust, debris & residue removal after construction</div>
-        <div class="s-from">from</div>
-        <div class="s-price">$300</div>
+      <div class="price-bar">
+        <div><div class="p-label">Estimated total</div><div class="p-note">Final price confirmed after home assessment</div></div>
+        <div class="p-total" id="price-display">S$0</div>
       </div>
     </div>
-    <div class="section-title" style="font-size:15px;margin-bottom:8px">Add-ons</div>
-    <div class="addons-list">
-      <div class="addon-row" onclick="toggleAddon(this)" data-addon="Interior Windows" data-price="40"><div class="addon-left"><div class="addon-check"><i class="ti ti-check"></i></div><div><div class="addon-name">Interior windows</div></div></div><div class="addon-price">+$40</div></div>
-      <div class="addon-row" onclick="toggleAddon(this)" data-addon="Oven Deep Clean" data-price="35"><div class="addon-left"><div class="addon-check"><i class="ti ti-check"></i></div><div><div class="addon-name">Oven deep clean</div></div></div><div class="addon-price">+$35</div></div>
-      <div class="addon-row" onclick="toggleAddon(this)" data-addon="Fridge Clean Out" data-price="30"><div class="addon-left"><div class="addon-check"><i class="ti ti-check"></i></div><div><div class="addon-name">Fridge clean out</div></div></div><div class="addon-price">+$30</div></div>
-      <div class="addon-row" onclick="toggleAddon(this)" data-addon="Laundry Room" data-price="25"><div class="addon-left"><div class="addon-check"><i class="ti ti-check"></i></div><div><div class="addon-name">Laundry room</div></div></div><div class="addon-price">+$25</div></div>
-      <div class="addon-row" onclick="toggleAddon(this)" data-addon="Garage" data-price="60"><div class="addon-left"><div class="addon-check"><i class="ti ti-check"></i></div><div><div class="addon-name">Garage</div></div></div><div class="addon-price">+$60</div></div>
+
+    <!-- Subscription variant -->
+    <div id="sub-service" style="display:none">
+      <div class="section-title">Your subscription</div>
+      <div class="section-sub">Pick the plan that fits your home — switch anytime, cancel anytime.</div>
+      <div class="service-grid">
+        <div class="service-card" data-plan="fresh" onclick="selectPlan(this)">
+          <div class="s-name"><i class="ti ti-refresh" style="font-size:14px;margin-right:4px"></i>Fresh</div>
+          <div class="s-desc">A monthly reset · 1 visit / month</div>
+          <div class="s-from">per clean</div>
+          <div class="s-price">S$79</div>
+        </div>
+        <div class="service-card" data-plan="signature" onclick="selectPlan(this)">
+          <div class="s-name"><i class="ti ti-star" style="font-size:14px;margin-right:4px"></i>Signature</div>
+          <div class="s-desc">Fortnightly · 2 visits / month · first 2 cleans free</div>
+          <div class="s-from">per clean</div>
+          <div class="s-price">S$69</div>
+        </div>
+        <div class="service-card" data-plan="signatureplus" onclick="selectPlan(this)">
+          <div class="s-name"><i class="ti ti-stars" style="font-size:14px;margin-right:4px"></i>Signature+</div>
+          <div class="s-desc">Weekly · 4 visits / month · first 2 cleans free</div>
+          <div class="s-from">per clean</div>
+          <div class="s-price">S$59</div>
+        </div>
+      </div>
+      <div class="price-bar">
+        <div><div class="p-label">Billed monthly</div><div class="p-note" id="sub-note">Cancel anytime</div></div>
+        <div class="p-total" id="sub-price-display">S$0</div>
+      </div>
     </div>
-    <div class="price-bar">
-      <div><div class="p-label">Estimated total</div><div class="p-note">Final price confirmed after home assessment</div></div>
-      <div class="p-total" id="price-display">$0</div>
-    </div>
+
     <div class="nav-btns"><span></span><button class="btn-next" onclick="goTo(2)">Next: Your details <i class="ti ti-arrow-right"></i></button></div>
   </div>
 
@@ -182,16 +216,19 @@
       <div class="field"><label>Last name <span class="required">*</span></label><input type="text" id="lname" placeholder="Smith"></div>
     </div>
     <div class="row2">
-      <div class="field"><label>Email <span class="required">*</span></label><input type="email" id="email" placeholder="jane@email.com"></div>
-      <div class="field"><label>Phone <span class="required">*</span></label><input type="tel" id="phone" placeholder="+1 555 000 0000"></div>
+      <div class="field"><label>Email <span class="required">*</span></label><input type="email" id="email" placeholder="jane.tan@email.com"></div>
+      <div class="field"><label>Phone <span class="required">*</span></label><input type="tel" id="phone" placeholder="+65 8123 4567"></div>
     </div>
-    <div class="field"><label>Service address <span class="required">*</span></label><input type="text" id="address" placeholder="123 Main St, City, State"></div>
+    <div class="field"><label>Service address <span class="required">*</span></label><input type="text" id="address" placeholder="Blk 123 Tampines St 11, #05-67, Singapore 521123"></div>
     <div class="field" style="margin-bottom:0.5rem"><label>Home size</label></div>
     <div class="size-grid">
-      <div class="size-btn" onclick="selectSize(this)" data-size="Studio" data-mult="1"><div class="s-label">Studio</div><div class="s-sub">up to 500 sq ft</div></div>
-      <div class="size-btn" onclick="selectSize(this)" data-size="Small" data-mult="1.1"><div class="s-label">Small</div><div class="s-sub">500–900 sq ft</div></div>
-      <div class="size-btn" onclick="selectSize(this)" data-size="Medium" data-mult="1.25"><div class="s-label">Medium</div><div class="s-sub">900–1500 sq ft</div></div>
-      <div class="size-btn" onclick="selectSize(this)" data-size="Large" data-mult="1.5"><div class="s-label">Large</div><div class="s-sub">1500+ sq ft</div></div>
+      <div class="size-btn" onclick="selectSize(this)" data-size="Studio" data-mult="1"><div class="s-label">Studio</div><div class="s-sub">up to 400 sq ft</div></div>
+      <div class="size-btn" onclick="selectSize(this)" data-size="2 Room" data-mult="1.1"><div class="s-label">2 Room</div><div class="s-sub">approx. 500 sq ft</div></div>
+      <div class="size-btn" onclick="selectSize(this)" data-size="3 Room" data-mult="1.2"><div class="s-label">3 Room</div><div class="s-sub">approx. 700 sq ft</div></div>
+      <div class="size-btn" onclick="selectSize(this)" data-size="4 Room" data-mult="1.35"><div class="s-label">4 Room</div><div class="s-sub">approx. 970 sq ft</div></div>
+      <div class="size-btn" onclick="selectSize(this)" data-size="5 Room" data-mult="1.5"><div class="s-label">5 Room</div><div class="s-sub">approx. 1200 sq ft</div></div>
+      <div class="size-btn" onclick="selectSize(this)" data-size="Landed" data-mult="1.8"><div class="s-label">Landed</div><div class="s-sub">terrace / semi-D</div></div>
+      <div class="size-btn" onclick="selectSize(this)" data-size="Multi-storey" data-mult="2.2"><div class="s-label">Multi-storey</div><div class="s-sub">bungalow / 2+ floors</div></div>
     </div>
     <div class="field" style="margin-bottom:0.5rem"><label>Specific rooms / areas to focus on</label></div>
     <div class="rooms-grid">
@@ -204,16 +241,16 @@
     </div>
     <div class="field"><label>Special instructions</label><textarea id="instructions" placeholder="Pets at home, access notes, areas to avoid, allergies to certain products..."></textarea></div>
     <div class="price-bar">
-      <div><div class="p-label">Estimated total</div><div class="p-note">Adjusted for home size</div></div>
-      <div class="p-total" id="price-display-2">$0</div>
+      <div><div class="p-label" id="price-label-2">Estimated total</div><div class="p-note" id="price-note-2">Adjusted for home size</div></div>
+      <div class="p-total" id="price-display-2">S$0</div>
     </div>
     <div class="nav-btns"><button class="btn-back" onclick="goTo(1)"><i class="ti ti-arrow-left"></i> Back</button><button class="btn-next" onclick="goTo(3)">Next: Schedule <i class="ti ti-arrow-right"></i></button></div>
   </div>
 
   <!-- Panel 3: Schedule -->
   <div class="panel card" id="panel-3">
-    <div class="section-title">Pick a date & time</div>
-    <div class="section-sub">Choose when you'd like us to come.</div>
+    <div class="section-title" id="sched-title">Pick a date & time</div>
+    <div class="section-sub" id="sched-sub">Choose when you'd like us to come.</div>
     <div class="row2">
       <div class="field"><label>Preferred date <span class="required">*</span></label><input type="date" id="pdate"></div>
       <div class="field"><label>Preferred time <span class="required">*</span></label>
@@ -271,25 +308,54 @@
 </div>
 
 <script>
-let state = { service: null, basePrice: 0, addons: [], size: null, sizeMult: 1, rooms: [] };
+const PLANS = {
+  fresh:         { name: 'Fresh',      price: 79, visits: 1, cadence: '1 visit / month',  freeFirst: 0 },
+  signature:     { name: 'Signature',  price: 69, visits: 2, cadence: '2 visits / month', freeFirst: 2 },
+  signatureplus: { name: 'Signature+', price: 59, visits: 4, cadence: '4 visits / month', freeFirst: 2 },
+};
 
-function calcTotal() {
+let state = { mode: 'oneoff', plan: null, service: null, basePrice: 0, addons: [], size: null, sizeMult: 1, rooms: [] };
+
+function oneoffTotal() {
   let base = state.basePrice * state.sizeMult;
   let addonsTotal = state.addons.reduce((s, a) => s + a.price, 0);
   return Math.round(base + addonsTotal);
 }
 
+function monthlyTotal() {
+  const p = PLANS[state.plan];
+  return p ? p.price * p.visits : 0;
+}
+
 function updatePriceDisplays() {
-  let t = '$' + calcTotal().toLocaleString();
-  document.getElementById('price-display').textContent = t;
-  document.getElementById('price-display-2').textContent = t;
+  if (state.mode === 'subscription') {
+    const p = PLANS[state.plan];
+    let monthly = p ? 'S$' + monthlyTotal().toLocaleString() + ' / mo' : 'S$0';
+    let subEl = document.getElementById('sub-price-display');
+    if (subEl) subEl.textContent = monthly;
+    document.getElementById('price-display-2').textContent = monthly;
+    let note = document.getElementById('sub-note');
+    if (note) note.textContent = (p && p.freeFirst) ? ('First ' + p.freeFirst + ' cleans free · cancel anytime') : 'Cancel anytime';
+  } else {
+    let t = 'S$' + oneoffTotal().toLocaleString();
+    let el = document.getElementById('price-display');
+    if (el) el.textContent = t;
+    document.getElementById('price-display-2').textContent = t;
+  }
 }
 
 function selectService(el) {
-  document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
+  document.querySelectorAll('#oneoff-service .service-card').forEach(c => c.classList.remove('selected'));
   el.classList.add('selected');
   state.service = el.dataset.service;
   state.basePrice = parseInt(el.dataset.base);
+  updatePriceDisplays();
+}
+
+function selectPlan(el) {
+  document.querySelectorAll('#sub-service .service-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  state.plan = el.dataset.plan;
   updatePriceDisplays();
 }
 
@@ -318,6 +384,39 @@ function toggleRoom(el) {
   else state.rooms.push(room);
 }
 
+function applyMode() {
+  const oneoff = document.getElementById('oneoff-service');
+  const sub = document.getElementById('sub-service');
+  const lbl2 = document.getElementById('price-label-2');
+  const note2 = document.getElementById('price-note-2');
+  const step1Label = document.querySelector('#step-1 .step-label');
+  const schedTitle = document.getElementById('sched-title');
+  const schedSub = document.getElementById('sched-sub');
+  if (state.mode === 'subscription') {
+    oneoff.style.display = 'none';
+    sub.style.display = 'block';
+    if (step1Label) step1Label.textContent = 'Plan';
+    if (lbl2) lbl2.textContent = 'Billed monthly';
+    if (note2) note2.textContent = 'Flat subscription rate';
+    if (schedTitle) schedTitle.textContent = 'Schedule your first clean';
+    if (schedSub) schedSub.textContent = 'Choose when your subscription should start.';
+    let card = document.querySelector('#sub-service .service-card[data-plan="' + state.plan + '"]');
+    if (card) {
+      document.querySelectorAll('#sub-service .service-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+    }
+  } else {
+    oneoff.style.display = 'block';
+    sub.style.display = 'none';
+    if (step1Label) step1Label.textContent = 'Service';
+    if (lbl2) lbl2.textContent = 'Estimated total';
+    if (note2) note2.textContent = 'Adjusted for home size';
+    if (schedTitle) schedTitle.textContent = 'Pick a date & time';
+    if (schedSub) schedSub.textContent = "Choose when you'd like us to come.";
+  }
+  updatePriceDisplays();
+}
+
 function setStepState(n) {
   for (let i = 1; i <= 4; i++) {
     let s = document.getElementById('step-' + i);
@@ -328,7 +427,10 @@ function setStepState(n) {
 }
 
 function goTo(n) {
-  if (n === 2 && !state.service) { alert('Please select a service to continue.'); return; }
+  if (n === 2) {
+    if (state.mode === 'subscription' && !state.plan) { alert('Please choose a subscription plan.'); return; }
+    if (state.mode !== 'subscription' && !state.service) { alert('Please select a service to continue.'); return; }
+  }
   if (n === 3) {
     let fname = document.getElementById('fname').value.trim();
     let lname = document.getElementById('lname').value.trim();
@@ -351,37 +453,72 @@ function goTo(n) {
 
 function buildSummary() {
   let body = document.getElementById('summary-body');
-  let rows = [
-    ['Name', document.getElementById('fname').value + ' ' + document.getElementById('lname').value],
-    ['Email', document.getElementById('email').value],
-    ['Phone', document.getElementById('phone').value],
-    ['Address', document.getElementById('address').value],
-    ['Service', state.service + ' Clean'],
-    ['Home size', state.size || 'Not specified'],
-    ['Rooms', state.rooms.length ? state.rooms.join(', ') : 'Not specified'],
-    ['Add-ons', state.addons.length ? state.addons.map(a => a.name).join(', ') : 'None'],
-    ['Date', document.getElementById('pdate').value],
-    ['Time slot', document.getElementById('ptime').value],
-  ];
+  let rows;
   let inst = document.getElementById('instructions').value.trim();
-  if (inst) rows.push(['Notes', inst]);
-  body.innerHTML = rows.map(r => `<div class="summary-row"><span class="r-label">${r[0]}</span><span class="r-val">${r[1]}</span></div>`).join('');
-  document.getElementById('summary-total-val').textContent = '$' + calcTotal().toLocaleString();
+  if (state.mode === 'subscription') {
+    const p = PLANS[state.plan];
+    rows = [
+      ['Name', document.getElementById('fname').value + ' ' + document.getElementById('lname').value],
+      ['Email', document.getElementById('email').value],
+      ['Phone', document.getElementById('phone').value],
+      ['Address', document.getElementById('address').value],
+      ['Plan', p.name + ' subscription'],
+      ['Cadence', p.cadence],
+      ['Price per clean', 'S$' + p.price],
+      ['Home size', state.size || 'Not specified'],
+      ['Rooms', state.rooms.length ? state.rooms.join(', ') : 'Not specified'],
+      ['First clean', document.getElementById('pdate').value],
+      ['Time slot', document.getElementById('ptime').value],
+    ];
+    if (p.freeFirst) rows.push(['First ' + p.freeFirst + ' cleans', 'Free']);
+    if (inst) rows.push(['Notes', inst]);
+    body.innerHTML = rows.map(r => `<div class="summary-row"><span class="r-label">${r[0]}</span><span class="r-val">${r[1]}</span></div>`).join('');
+    document.querySelector('.summary-total .t-label').textContent = 'Billed monthly';
+    document.getElementById('summary-total-val').textContent = 'S$' + monthlyTotal().toLocaleString() + ' / mo';
+  } else {
+    rows = [
+      ['Name', document.getElementById('fname').value + ' ' + document.getElementById('lname').value],
+      ['Email', document.getElementById('email').value],
+      ['Phone', document.getElementById('phone').value],
+      ['Address', document.getElementById('address').value],
+      ['Service', state.service + ' Clean'],
+      ['Home size', state.size || 'Not specified'],
+      ['Rooms', state.rooms.length ? state.rooms.join(', ') : 'Not specified'],
+      ['Add-ons', state.addons.length ? state.addons.map(a => a.name).join(', ') : 'None'],
+      ['Date', document.getElementById('pdate').value],
+      ['Time slot', document.getElementById('ptime').value],
+    ];
+    if (inst) rows.push(['Notes', inst]);
+    body.innerHTML = rows.map(r => `<div class="summary-row"><span class="r-label">${r[0]}</span><span class="r-val">${r[1]}</span></div>`).join('');
+    document.querySelector('.summary-total .t-label').textContent = 'Estimated total';
+    document.getElementById('summary-total-val').textContent = 'S$' + oneoffTotal().toLocaleString();
+  }
 }
 
 function submitBooking() {
   // TODO: Replace this with a real form submission, e.g. fetch('/api/bookings', { method: 'POST', body: JSON.stringify(getFormData()) })
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
   document.getElementById('panel-success').classList.add('active');
-  document.getElementById('success-total').textContent = '$' + calcTotal().toLocaleString();
+  let totalTxt = state.mode === 'subscription'
+    ? ('S$' + monthlyTotal().toLocaleString() + ' / mo')
+    : ('S$' + oneoffTotal().toLocaleString());
+  document.getElementById('success-total').textContent = totalTxt;
   document.querySelectorAll('.step').forEach(s => { s.classList.remove('active'); s.classList.add('done'); });
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function getFormData() {
+  const p = PLANS[state.plan];
   return {
+    mode: state.mode,
+    plan: state.plan,
+    planName: p ? p.name : null,
+    cadence: p ? p.cadence : null,
+    pricePerClean: p ? p.price : null,
+    monthlyTotal: state.mode === 'subscription' ? monthlyTotal() : null,
     service: state.service, basePrice: state.basePrice, addons: state.addons,
-    homeSize: state.size, rooms: state.rooms, estimatedTotal: calcTotal(),
+    homeSize: state.size, rooms: state.rooms,
+    estimatedTotal: state.mode === 'subscription' ? monthlyTotal() : oneoffTotal(),
     firstName: document.getElementById('fname').value,
     lastName: document.getElementById('lname').value,
     email: document.getElementById('email').value,
@@ -396,16 +533,23 @@ function getFormData() {
 }
 
 function resetForm() {
-  state = { service: null, basePrice: 0, addons: [], size: null, sizeMult: 1, rooms: [] };
+  let keepMode = state.mode, keepPlan = state.plan;
+  state = { mode: keepMode, plan: keepPlan, service: null, basePrice: 0, addons: [], size: null, sizeMult: 1, rooms: [] };
   document.querySelectorAll('.service-card, .addon-row, .size-btn, .room-btn').forEach(el => el.classList.remove('selected'));
   ['fname','lname','email','phone','address','instructions','pdate','bdate'].forEach(id => document.getElementById(id).value = '');
   document.getElementById('ptime').value = '';
   document.getElementById('source').value = '';
-  updatePriceDisplays();
+  applyMode();
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
   document.getElementById('panel-1').classList.add('active');
   setStepState(1);
 }
+
+// Determine mode from the ?plan= query parameter set by the home page
+const params = new URLSearchParams(window.location.search);
+let planParam = (params.get('plan') || '').toLowerCase().replace('+', 'plus');
+if (PLANS[planParam]) { state.mode = 'subscription'; state.plan = planParam; }
+applyMode();
 
 let today = new Date().toISOString().split('T')[0];
 document.getElementById('pdate').min = today;
